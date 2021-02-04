@@ -13,7 +13,7 @@ def main():
     
     access_point = "3014F711A00003DA49957C22"
     devicename = "access"
-    path = "H:"
+    path = ""
     
     home = Home()
     home.init(access_point)
