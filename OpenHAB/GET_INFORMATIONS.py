@@ -8,10 +8,9 @@ from homematicip.device import ShutterContact,HeatingThermostat,PlugableSwitchMe
 
 
 def main():
-    config = homematicip.find_and_load_config_file()
     home = Home()
-    home.set_auth_token(config.auth_token)
-    home.init(config.access_point)
+    home.set_auth_token("Input AuthToken")
+    home.init("Input AP SGTIN")
 
 
 
