@@ -13,7 +13,7 @@ def main():
     
     access_point = "3014F711A00003DA49957C22"
     devicename = "access"
-    path = ""
+   
     
     home = Home()
     home.init(access_point)
@@ -63,7 +63,7 @@ def main():
     _config["AUTH"] = {"AuthToken": auth_token, "AccessPoint": access_point}
     _config.set("LOGGING", "Level", "30")
     _config.set("LOGGING", "FileName", "None")
-    with open(path+"/config.ini", "w") as configfile:
+    with open("config.ini", "w") as configfile:
         _config.write(configfile)
 
 
