@@ -22,10 +22,11 @@ def main():
         if g.groupType=="META":
             for device in g.devices:
                 if isinstance(device,HeatingThermostat):
-                    return [device.valveActualTemperature,
-                            device.automaticValveAdaptionNeeded,
-                            device.setPointTemperature,
-                            g.label, device.label, device.lastStatusUpdate]
+                    return(str(device.valveActualTemperature) + " °C")
+                    #return [device.valveActualTemperature,
+                    #        device.automaticValveAdaptionNeeded,
+                    #        device.setPointTemperature,
+                    #        g.label, device.label, device.lastStatusUpdate]
                         
          
 
