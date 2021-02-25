@@ -1,0 +1,4 @@
+# For security reasons all commands that are used by the exec binding or transformation need to be whitelisted.
+# Every command needs to be listed on a separate line below.
+python3 /etc/openhab2/scripts/GET_INFORMATIONS.py
+hmip_cli.py --config_file /etc/openhab2/scripts/config.ini --group 8ffb66ef-7f39-4b8a-971f-d480cf4ed57d --set-point-temperature %2$s

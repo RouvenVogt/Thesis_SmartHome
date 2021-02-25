@@ -1,0 +1,16 @@
+Color YeelightColor {channel="yeelight:wonder:1:color"}
+Switch YeelightSwitch {channel="yeelight:wonder:1:color"}
+Dimmer YeelightDimmer {channel="yeelight:wonder:1:colorTemperature"}
+String YeelightCommand {channel="yeelight:wonder:1:command"}
+String LastMessage {channel="shelly:shellybutton1:2:status#lastEvent"}
+
+Dimmer YeelightDimmer "GOogledimmer" <light> {ga="Light"}
+
+
+String LastOutput "Ist-Temperatur [%s]" (All) {channel="exec:command:get_hmip:output"}
+
+Number InputNumber 
+String set_command {channel="exec:command:set_hmip:input"}
+ 
+
+Switch tasmotamqtt {channel="mqtt:topic:d9b548fd:Power"}

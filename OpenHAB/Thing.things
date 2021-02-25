@@ -1,0 +1,5 @@
+Thing yeelight:wonder:1 [ deviceId = "0x000000000804e1a4", duration = 1000]
+Thing shelly:shellybutton1:2 [deviceIp="192.168.178.30", userId="", password=""]
+
+Thing exec:command:get_hmip [command="python3 /etc/openhab2/scripts/GET_INFORMATIONS.py", interval = 15, timeout = 5]
+Thing exec:command:set_hmip [command="hmip_cli.py --config_file /etc/openhab2/scripts/config.ini --group 8ffb66ef-7f39-4b8a-971f-d480cf4ed57d --set-point-temperature %2$s", interval=30]

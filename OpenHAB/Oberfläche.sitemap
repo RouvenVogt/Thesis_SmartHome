@@ -1,0 +1,29 @@
+sitemap Yeelight label="Thesis"{
+Frame label="Yeelight"
+{
+Colorpicker item=YeelightColor label="Farbauswahl"
+Switch item=YeelightSwitch label="On/Off"
+Slider item=YeelightDimmer label="Farbtemperatur"
+}
+Frame label="Shelly"
+{
+Text item=LastMessage label="Last Message: [%s]"
+}
+
+Frame label="Thermostat Infos"
+{
+Text item=LastOutput
+}
+
+
+Frame label="Temperatur:" {
+Setpoint item=InputNumber label="Soll-Temperatur [%.1f °C]"  minValue=0 maxValue=30 step=0.5 
+}
+
+Frame label="SonoffS20"
+{
+Switch item=tasmotamqtt label="On/Off"
+}
+
+}
+
