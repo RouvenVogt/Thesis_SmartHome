@@ -1,0 +1,51 @@
+- id: '1605489166563'
+  alias: Steckdosen Automatisierung
+  trigger:
+  - platform: time
+    at: input_datetime.only_time
+  action:
+  - service: switch.turn_on
+    entity_id: switch.sonoff_10002c0a57
+  mode: single
+- id: '1606407384190'
+  alias: Heizautomatisierung Shelly
+  description: Enthält Heizmuster das durch Shelly 2x aktiviert wird
+  trigger:
+  - platform: state
+    entity_id: switch.nodered_entity_switch
+  condition: []
+  action:
+  - service: homematicip_cloud.set_active_climate_profile
+    data:
+      climate_profile_index: 2
+    entity_id: climate.access_home
+  mode: single
+- id: '001'
+  alias: Steckdose On
+  trigger:
+    platform: event
+    event_type: shellyforhass.click
+    event_data:
+    click_type: single
+  action:
+    service: switch.turn_on
+    entity_id: switch.sonoff_10002c0a57
+- id: '1612375691048'
+  alias: Zeitgesteuerte Automatisierung
+  description: ''
+  trigger:
+  - platform: time
+    at: '8:00'
+  condition: []
+  action:
+  - service: climate.set_temperature
+    entity_id: climate.access_home
+    data:
+      temperature: '23'
+  - service: light.turn_on
+    entity_id: light.yeelight_color_0x000000000804e1a4
+    data:
+      effect: Police
+  - service: switch.turn_on
+    entity_id: switch.sonoff_10002c0a57
+
