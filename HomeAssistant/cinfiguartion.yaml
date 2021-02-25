@@ -1,0 +1,55 @@
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+
+#Sonoff implemenatation
+sonoff:
+  username: USER@EMAIL.com
+  password: PASSWORD
+
+#DuckDNS als Server Domain
+http:
+  base_url: https://DOMAINNAME.duckdns.org:8123
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem 
+
+#Google Assistant implementation
+google_assistant:
+  project_id: thesis-1a08f
+  service_account: !include thesis-1a08f-ab9385aaef4d.json
+  report_state: true
+  exposed_domains:
+    - switch
+    - light
+    - climate
+
+#Zeitsteuerung GUI Element
+input_datetime:
+  only_time:
+    name: Zeitsteuerung Steckdose
+    has_date: false
+    has_time: true
+    
+
+           
+switch:
+  - platform: template
+    switches:
+      sw_motion_01:
+        value_template: "{{ is_state('automation.zeitgesteuerte_automatisierung', 'on') }}"
+        turn_on:
+          service: automation.turn_on
+          entity_id: automation.zeitgesteuerte_automatisierung
+        turn_off:
+          service: automation.turn_off
+          entity_id: automation.zeitgesteuerte_automatisierung
